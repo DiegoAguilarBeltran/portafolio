@@ -1,0 +1,20 @@
+services:
+  # Entorno de Desarrollo (localhost:4200)
+  web-dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    user: "${UID}:${GID}"
+
+  # Entorno de Producción (localhost:8080)
+  web-prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "8080:80"
