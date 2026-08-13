@@ -1,0 +1,33 @@
+.hero-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 820px;
+    background-image: url('/images/background-mesh.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    opacity: 0.7;
+    pointer-events: none;
+    /* Concentra la rejilla al centro-superior, la desvanece hacia los bordes
+       y difumina el borde superior para que no arranque de golpe */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 55% 65% at 50% 22%,
+            #000 0%,
+            rgba(0, 0, 0, 0.55) 45%,
+            transparent 80%
+        ),
+        linear-gradient(to bottom, transparent 0%, #000 18%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        radial-gradient(
+            ellipse 55% 65% at 50% 22%,
+            #000 0%,
+            rgba(0, 0, 0, 0.55) 45%,
+            transparent 80%
+        ),
+        linear-gradient(to bottom, transparent 0%, #000 18%);
+    mask-composite: intersect;
+}

@@ -1,11 +1,16 @@
-<main class="w-screen min-h-screen flex flex-col">
-    <header>
+<main class="w-screen min-h-screen flex flex-col relative overflow-hidden">
+    <header class="relative z-20">
         <app-header></app-header>
     </header>
-    <div class="grow">
-        <!-- Contenido principal (hero, habilidades, etc.) -->
+    <div class="grow relative">
+        <!-- Capa de fondo mesh (rejilla) detrás del hero -->
+        <div class="hero-mesh" aria-hidden="true"></div>
+
+        <div class="relative z-10">
+            <app-hero></app-hero>
+        </div>
     </div>
-    <footer>
+    <footer class="relative z-20">
         <app-footer></app-footer>
     </footer>
 </main>

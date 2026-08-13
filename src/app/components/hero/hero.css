@@ -1,0 +1,100 @@
+/* Capa de difuminado detrás de los CONTENEDORES (título, subtítulo, grupo de
+   botones y tag). Va en un ::before con z-index: -1, así queda siempre detrás
+   del contenido y nunca se proyecta encima del texto ni de los elementos. */
+.content-backdrop {
+  position: relative;
+  z-index: 0;
+}
+
+.content-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    #000916 0%,
+    #000916 58%,
+    rgba(0, 9, 22, 0.92) 74%,
+    transparent 92%
+  );
+  filter: blur(14px);
+}
+
+.hero-gradient {
+  background: linear-gradient(95deg, #34d399 0%, #6ee7b7 55%, #d6fff1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Botón primario (relleno verde) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #34d399;
+  color: #00160f;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6ee7b7;
+  transform: translateY(-1px);
+}
+
+/* Botón secundario (contorno, fondo sólido del color de página) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #33415580;
+  background-color: #000916;
+  color: #e2e8f0;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #0b1a2e;
+  border-color: #475569;
+}
+
+/* Badge de disponibilidad */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background-color: rgba(52, 211, 153, 0.05);
+  color: #cbd5e1;
+  font-size: 0.875rem;
+}
+
+.availability-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: #34d399;
+  animation: availability-pulse 2s infinite;
+}
+
+@keyframes availability-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
