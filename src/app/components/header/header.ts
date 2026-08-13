@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+interface NavItem {
+  label: string;
+  href: string;
+  active?: boolean;
+}
+
 @Component({
   selector: 'app-header',
   imports: [],
@@ -7,14 +13,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
-  headerAnchors = [
-    "Inicio",
-    "Habilidades",
-    "Proyectos",
-    "Experiencia",
-    "Contacto"
+  navItems: NavItem[] = [
+    { label: 'Inicio', href: '#inicio', active: true },
+    { label: 'Habilidades', href: '#habilidades' },
+    { label: 'Proyectos', href: '#proyectos' },
+    { label: 'Experiencia', href: '#experiencia' },
+    { label: 'Contacto', href: '#contacto' },
   ];
-  
-  constructor() {
-  }
 }

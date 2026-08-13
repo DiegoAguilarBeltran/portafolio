@@ -1,12 +1,26 @@
-<div class="w-full h-18 border py-4 flex content-center justify-center">
-  <div class="w-full max-w-3/4 flex content-center justify-center">
-    <div class="w-1/2"></div>
-    <ul class="flex flex-row gap-6 w-1/2 px-8 content-center">
-      @for (i of headerAnchors; track $index) {
-        <li>
-          <a href="" class="font-light text-xl">{{ i }}</a>
-        </li>
-      }
-    </ul>
+<div class="header-bar w-full">
+  <div class="mx-auto max-w-6xl h-20 px-6 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#inicio" class="flex items-center gap-3 shrink-0">
+      <span class="font-mono text-2xl font-medium text-emerald-400">&#123;D&#125;</span>
+      <span class="text-xl font-semibold tracking-wide text-white">DIEGO A.</span>
+    </a>
+
+    <!-- Navegación -->
+    <nav>
+      <ul class="flex flex-row gap-8">
+        @for (item of navItems; track item.label) {
+          <li>
+            <a
+              [href]="item.href"
+              class="nav-link text-lg font-light transition-colors duration-200"
+              [class.is-active]="item.active"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
   </div>
 </div>

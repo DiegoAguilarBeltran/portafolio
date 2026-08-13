@@ -1,4 +1,13 @@
-.border {
-    border: none;
-    border-top: solid 2px #25314282;
+.footer-bar {
+  border-top: solid 1px #25314282;
+}
+
+.footer-link {
+  color: #34d399;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #6ee7b7;
+  text-decoration: underline;
 }
