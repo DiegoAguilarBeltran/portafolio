@@ -1,0 +1,41 @@
+<section id="habilidades" class="w-full">
+  <div class="mx-auto max-w-7xl px-6 py-16">
+    <h2 class="mb-8 text-2xl md:text-3xl font-bold uppercase tracking-wide text-white">
+      Habilidades Técnicas
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (category of categories; track category.title) {
+        <div class="skill-card">
+          <h3 class="skill-card__title">{{ category.title }}</h3>
+
+          <ul class="flex flex-col gap-3">
+            @for (skill of category.skills; track skill.name) {
+              <li class="flex items-center gap-3">
+                @if (skill.icon) {
+                  <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" />
+                } @else {
+                  <span class="skill-icon skill-icon--fallback">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                  </span>
+                }
+                <span class="text-slate-200">{{ skill.name }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
