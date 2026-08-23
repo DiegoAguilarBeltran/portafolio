@@ -1,26 +1,4 @@
-/* Capa de difuminado detrás de los CONTENEDORES (título, subtítulo, grupo de
-   botones y tag). Va en un ::before con z-index: -1, así queda siempre detrás
-   del contenido y nunca se proyecta encima del texto ni de los elementos. */
-.content-backdrop {
-  position: relative;
-  z-index: 0;
-}
-
-.content-backdrop::before {
-  content: "";
-  position: absolute;
-  inset: -28px;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    #000916 0%,
-    #000916 58%,
-    rgba(0, 9, 22, 0.92) 74%,
-    transparent 92%
-  );
-  filter: blur(14px);
-}
+/* El efecto .content-backdrop ahora es global (styles.css) y se reutiliza aquí. */
 
 .hero-gradient {
   background: linear-gradient(95deg, #34d399 0%, #6ee7b7 55%, #d6fff1 100%);

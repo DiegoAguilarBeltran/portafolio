@@ -1,33 +1,25 @@
-.hero-mesh {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 820px;
+/* Fondo mesh fijo: se mantiene detrás de todo el contenido al hacer scroll.
+   El vignette radial lo concentra en el centro y lo desvanece hacia los bordes. */
+.mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
     background-image: url('/images/background-mesh.png');
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: center;
     background-size: cover;
-    opacity: 0.7;
+    opacity: 0.6;
     pointer-events: none;
-    /* Concentra la rejilla al centro-superior, la desvanece hacia los bordes
-       y difumina el borde superior para que no arranque de golpe */
-    -webkit-mask-image:
-        radial-gradient(
-            ellipse 55% 65% at 50% 22%,
-            #000 0%,
-            rgba(0, 0, 0, 0.55) 45%,
-            transparent 80%
-        ),
-        linear-gradient(to bottom, transparent 0%, #000 18%);
-    -webkit-mask-composite: source-in;
-    mask-image:
-        radial-gradient(
-            ellipse 55% 65% at 50% 22%,
-            #000 0%,
-            rgba(0, 0, 0, 0.55) 45%,
-            transparent 80%
-        ),
-        linear-gradient(to bottom, transparent 0%, #000 18%);
-    mask-composite: intersect;
+    -webkit-mask-image: radial-gradient(
+        ellipse 50% 55% at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.5) 52%,
+        transparent 80%
+    );
+    mask-image: radial-gradient(
+        ellipse 50% 55% at 50% 42%,
+        #000 0%,
+        rgba(0, 0, 0, 0.5) 52%,
+        transparent 80%
+    );
 }
